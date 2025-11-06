@@ -1,6 +1,6 @@
 /**
  * Author: Thieu Nguyen Huy
- * Description: Primality check for numbers up to $7 \cdots 10^18$, extend bases for larger number
+ * Description: Primality check for numbers up to $7 \cdot 10^{18}$, extend bases for larger number
  * Time: O(7 * logN)
  * Status: Tested on judge.yosupo.jp
  */

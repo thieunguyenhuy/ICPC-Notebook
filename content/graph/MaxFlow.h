@@ -2,7 +2,7 @@
  * Author: Thieu Nguyen Huy
  * Description: Dinitz's algorithm to find max-flow.
  * Usage: Call myflow.resize(num_vertices, source, sink) to initalize the network.
- * Time: O(V^2 * E) in worst cases
+ * Time: O(V^2 \cdot E) in worst cases
  * Status: Well-tested
  */
 

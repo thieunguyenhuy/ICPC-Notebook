@@ -1,7 +1,7 @@
 /**
  * Author: KickingKun
  * Description: use for max matching
- * Time: O(E * sqrt(V))
+ * Time: O(E \sqrt V)
  * Status: approved by KickingKun
 */
 

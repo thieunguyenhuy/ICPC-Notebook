@@ -2,8 +2,8 @@
  * Author: Thieu Nguyen Huy
  * Description: Persistent segment tree with range updates and range sum queries.
  * Usage: Remember to call mytree.resize(n) before any operations.
- * Time: O(logN) for each operation
- * Memory: O(4 * logN * numUpdates) 
+ * Time: O(\log N) for each operation
+ * Memory: O(4 * \log N * numUpdates) 
  * Status: Not tested
  */
 

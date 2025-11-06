@@ -1,7 +1,7 @@
 /**
  * Author: KickingKun
  * Description: LichaoTree -> use for DP convex hull trick
- * Time: Both operations are O(logN)
+ * Time: Both operations are O(\log N)
  * Status: Tested by KickingKun
 */
 
@@ -26,7 +26,7 @@ struct LiChaoTree {
     node *root = new node();
 
     ll query(node *i, ll l, ll r, ll x) {
-        if (i == NULL || x < l || x > r) return INF;
+        if` (i == NULL || x < l || x > r) return INF;
         ll m = (l + r) >> 1;
         ll ans = i->line(x);
         minimize(ans, query(i->l, l, m, x));

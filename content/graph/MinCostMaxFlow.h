@@ -2,7 +2,7 @@
  * Author: Thieu Nguyen Huy
  * Description: Edmond-Karp algorithm with SPFA to find the shortest path.
  * Usage: Call myflow.resize(num_vertices, source, sink) to initalize the network.
- * Time: O(F * V * E) in worst cases
+ * Time: O(F \cdot V \cdot E) in worst cases
  * Status: Well-tested
  */
  

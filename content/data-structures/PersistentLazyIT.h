@@ -3,7 +3,7 @@
  * Description: Persistent segment tree with range updates and range sum queries.
  * Usage: Remember to call mytree.resize(n) before any operations.
  * Time: O(\log N) for each operation
- * Memory: O(4 * \log N * numUpdates) 
+ * Memory: O(4 \cdot \log N \cdot numUpdates) 
  * Status: Not tested
  */
 

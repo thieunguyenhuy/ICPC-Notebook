@@ -4,7 +4,7 @@
  * Usage: Remember to call mytree.resize(n) before any operations.
  *  Make sure to check for integer overflows in update values.
  * Time: O(\log N) for each operation
- * Memory: O(\log N * numUpdates) 
+ * Memory: O(\log N \cdot numUpdates) 
  * Status: Tested on CSES
  */
 

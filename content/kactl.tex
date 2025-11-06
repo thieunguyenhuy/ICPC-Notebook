@@ -1,5 +1,8 @@
 \documentclass[11pt, a4paper, notitlepage]{extreport}
 \usepackage{kactlpkg}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\pretocmd{\section}{\needspace{5\baselineskip}}{}{}
 \kactlcontentdir{content}
 
 \university{Overflower}{Le Quy Don High School for Gifted}{kth}

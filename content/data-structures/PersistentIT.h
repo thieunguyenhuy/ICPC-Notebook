@@ -1,7 +1,8 @@
 /**
  * Author: Thieu Nguyen Huy
- * Description: Persistent segment tree with point updates and range sum queries
+ * Description: Persistent segment tree with point updates and range sum queries.
  * Usage: Remember to call mytree.resize(n) before any operations.
+ *  Make sure to check for integer overflows in update values.
  * Time: O(logN) for each operation
  * Memory: O(logN * numUpdates) 
  * Status: Tested on CSES
@@ -35,7 +36,7 @@ struct PersistentIT { // 1-indexed
         int id = ++numNode;
         if (l == r) {
             nodes[id] = nodes[oldId];
-            nodes[id].sum = val;
+            nodes[id].sum += val;
             return id;
         }
  

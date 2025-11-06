@@ -169,6 +169,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
             out.append(r"\deftime{%s}" % ordoescape(commands["Time"]))
         if commands.get("Memory"):
             out.append(r"\defmemory{%s}" % ordoescape(commands["Memory"]))
+        if commands.get("Status"):
+            out.append(r"\defstatus{%s}" % ordoescape(commands["Status"]))
         if includelist:
             out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
         if nsource:

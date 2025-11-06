@@ -80,10 +80,10 @@ struct bipartite_matching {
 		return {L, R};
 	}
 
-    	vector <pii> get_edges() { // get from max matching
-        	vector <pii> ans;
-        	for (int u = 1; u <= n; ++u)
-            	if (match1[u] != -1) ans.emplace_back(u, match1[u]);
-        	return ans;
-    	}
+	vector <pii> get_edges() { // get from max matching
+		vector <pii> ans;
+		for (int u = 1; u <= n; ++u)
+			if (match1[u] != -1) ans.emplace_back(u, match1[u]);
+		return ans;
+	}
 };

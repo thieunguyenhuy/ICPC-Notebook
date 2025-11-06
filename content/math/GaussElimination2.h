@@ -52,6 +52,7 @@ namespace Gauss {
         vector<T> basis;
         for (int i = 0; i < m; ++i) if (where[i] == -1) {
             T x; x[i] = 1;
+            // x(j) + a[where[j]][i] * x[i] = 0
             for (int j = 0; j < m; ++j) 
                 if (where[j] != -1) x[j] = a[where[j]][i];
             basis.emplace_back(x);

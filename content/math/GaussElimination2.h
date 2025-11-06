@@ -2,7 +2,7 @@
  * Author: Thieu Nguyen Huy
  * Description: Gauss elimation to solve system of linear equations (mod 2)
  * Usage: all roots of the system have the form: ans + sum(c(i) * basis(i))
- * Time: O(min(N, M) * N * M / 64) where N = equations, M = variables
+ * Time: O(\frac{min(N, M) \cdot N \cdot M}{64}) where N = equations, M = variables
  * Status: Tested on judge.yosupo.jp
  */
 

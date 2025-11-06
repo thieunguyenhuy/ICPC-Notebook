@@ -2,7 +2,7 @@
  * Author: Thieu Nguyen Huy
  * Description: Non-recursion segment tree with point updates and range sum queries.
  * Usage: Call mytree.resize(n) before any operations.
- * Time: O(logN) for each operation
+ * Time: O(\log N) for each operation
  * Status: Well-tested
  */
 

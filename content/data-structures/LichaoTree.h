@@ -1,7 +1,7 @@
 /**
  * Author: KickingKun
  * Description: LichaoTree -> use for DP convex hull trick
- * Time: Both operations are O(logN)
+ * Time: Both operations are O(\log N)
  * Status: Tested by KickingKun
 */
 

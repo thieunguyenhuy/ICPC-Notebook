@@ -1,7 +1,7 @@
 /**
  * Author: Thieu Nguyen Huy
  * Description: Suffix array using prefix doubling to sort with Kasai's algorithm for LCP
- * Time: O(N * logN^2) for construcing suffix array and O(n) for construcing LCP array
+ * Time: O(N \log^2 N) for construcing suffix array and O(n) for construcing LCP array
  * Status: Tested on judge.yosupo.jp
  */
 

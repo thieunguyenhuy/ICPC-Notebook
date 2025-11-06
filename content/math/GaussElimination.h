@@ -2,7 +2,7 @@
  * Author: Thieu Nguyen Huy
  * Description: Gauss elimation to solve system of linear equations
  * Usage: variables are numbered 0 -> m-1, the m-th column is the right hand side
- * Time: O(min(N, M) * N * M) where N = equations, M = variables
+ * Time: O(min(N, M) \cdot N \cdot M) where N = equations, M = variables
  * Status: Tested on VNOI
  */
 

@@ -2,7 +2,7 @@
  * Author: Thieu Nguyen Huy
  * Description: FFT to multiply two polynomials.
  * Usage: Get the real answer then convert to integer and modulo.
- * Time: O(N * logN) where N is the total sizes of two polynomials
+ * Time: O(N \log N) where N is the total sizes of two polynomials
  * Status: Well-tested
  */
 

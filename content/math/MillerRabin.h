@@ -1,7 +1,7 @@
 /**
  * Author: Thieu Nguyen Huy
  * Description: Primality check for numbers up to $7 \cdot 10^{18}$, extend bases for larger number
- * Time: O(7 * logN)
+ * Time: O(7 \log maxValue)
  * Status: Tested on judge.yosupo.jp
  */
 

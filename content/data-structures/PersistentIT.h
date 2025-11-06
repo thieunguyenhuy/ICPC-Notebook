@@ -3,8 +3,8 @@
  * Description: Persistent segment tree with point updates and range sum queries.
  * Usage: Remember to call mytree.resize(n) before any operations.
  *  Make sure to check for integer overflows in update values.
- * Time: O(logN) for each operation
- * Memory: O(logN * numUpdates) 
+ * Time: O(\log N) for each operation
+ * Memory: O(\log N * numUpdates) 
  * Status: Tested on CSES
  */
 

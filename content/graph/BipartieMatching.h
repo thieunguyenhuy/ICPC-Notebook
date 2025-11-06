@@ -1,7 +1,7 @@
 /**
  * Author: KickingKun
  * Description: use for max matching
- * Time: O(E \sqrt V)
+ * Time: O(E * sqrt(V))
  * Status: approved by KickingKun
 */
 
@@ -61,16 +61,16 @@ struct bipartite_matching {
 		return n - count(match1.begin() + 1, match1.end(), -1);
 	}
 	
-	pair <vector<int>, vector<int>> minimum_vertex_cover() {
-        	vector <int> L, R;
-        	for (int u = 1; u <= n; ++u) {
-            		if (dist[u] == -1) L.emb(u);
-            		else if (match1[u] != -1) R.emb(match1[u]);
-        	}
-        	return {L, R};
+	pair <vector <int>, vector <int>> minimum_vertex_cover() {
+    	vector <int> L, R;
+    	for (int u = 1; u <= n; ++u) {
+    		if (dist[u] == -1) L.emb(u);
+    		else if (match1[u] != -1) R.emb(match1[u]);
     	}
+		return {L, R};
+	}
     
-    	pair <vector <int>, vector <int>> maximum_independent_set() {
+    pair <vector <int>, vector <int>> maximum_independent_set() {
 		auto [_L, _R] = minimum_vertex_cover();
 		vector <int> L, R;
 		vector <bool> mark1(n + 2), mark2(m + 2);
@@ -81,9 +81,9 @@ struct bipartite_matching {
 	}
 
 	vector <pii> get_edges() { // get from max matching
-		vector <pii> ans;
-		for (int u = 1; u <= n; ++u)
-			if (match1[u] != -1) ans.emplace_back(u, match1[u]);
-		return ans;
+    	vector <pii> ans;
+    	for (int u = 1; u <= n; ++u)
+        	if (match1[u] != -1) ans.emplace_back(u, match1[u]);
+    	return ans;
 	}
 };

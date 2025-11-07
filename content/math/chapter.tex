@@ -1,8 +1,78 @@
 \chapter{Mathematics}
 
 \section{Math notes}
-	\subsection{Combinatorics}
-		
+		\subsection{Derangements}
+        Count the number of permutations of length $n$ with $0$ fixed points (i.e $p(i) \neq i$ for all $i \leq n$)
+        \[
+        f(n) = 
+        \begin{cases}
+        1, & n = 0,\\[6pt]
+        0, & n = 1,\\[6pt]
+        (n - 1)\bigl(f(n - 1) + f(n - 2)\bigr), & n \ge 2.
+        \end{cases}
+        \]
+    \subsection{Catalan Numbers}
+        \begin{itemize}
+        \item Correctly matched parentheses expressions of length $2n$,
+        \item Rooted binary trees with $n+1$ leaves,
+        \item Dyck paths of length $2n$,
+        \item Ways to triangulate a polygon with $n+2$ sides,
+        \item Different binary search trees that can be constructed with $n$ distinct keys.
+        \end{itemize}
+        \[
+        C_n = \frac{1}{n+1} \binom{2n}{n}, \quad n \ge 0.
+        \]
+        \[
+        C_n = \binom{2n}{n} - \binom{2n}{n+1}, \quad n \ge 0.
+        \]
+        \[
+        C_0 = 1, \qquad 
+        C_{n+1} = \sum_{i=0}^{n} C_i \, C_{n-i}, \quad n \ge 0.
+        \]
+        
+        The first few values of the sequence $(C_n)$ are
+        \[
+        1,\, 1,\, 2,\, 5,\, 14,\, 42,\, 132,\, 429,\, 1430,\, 4862,\, \ldots
+        \]
+    \subsection{Binet's Formula}
+        \[
+        F_0 = 0, \quad F_1 = 1, \quad F_n = F_{n-1} + F_{n-2} \quad \text{for} \quad n \ge 2.
+        \]
+        
+        \[
+        F_n = \frac{\phi^n - \psi^n}{\sqrt{5}},
+        \]
+        where \(\phi = \frac{1 + \sqrt{5}}{2}\) is the golden ratio and \(\psi = \frac{1 - \sqrt{5}}{2}\) is its conjugate.
+    \subsection{Sums}
+        \[
+        1^4 + 2^4 + 3^4 + \cdots + n^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}.
+        \]
+    \subsection{Sitrling number of the second kind}
+    The Stirlin number of the second kind, \(S(n, k)\), counts the number of ways to partition a set of \(n\) objects into \(k\) non-empty, unlabeled subsets. The formula is recursive and is given by:  
+    \[
+    S(n, k) = k \cdot S(n-1, k) + S(n-1, k-1), \quad S(0, 0) = 1, \quad S(n, 0) = 0 \quad \text{for} \quad n > 0.
+    \]
+    \[
+    S(n, k) = \frac{1}{k!} \sum_{i=0}^{k} (-1)^{k-i} \binom{k}{i} i^n.
+    \]
+    \subsection{Mobius}
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{a.png}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{b.png}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=1.0\linewidth]{c.png}
+    \end{center}
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{d.png}
+    \end{center}
+    \subsection{Combinatorics}
+    \[
+    \sum_{k=0}^{x} \frac{\binom{x}{k}}{\binom{n}{k}} = \frac{n + 1}{n - x + 1}.
+    \]
+
 \section{Algorithms}
 	\kactlimport{MillerRabin.h}
 	\kactlimport{FastFourierTransform.h}

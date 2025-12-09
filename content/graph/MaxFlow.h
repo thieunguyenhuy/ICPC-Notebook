@@ -1,103 +1,76 @@
 /**
  * Author: Thieu Nguyen Huy
  * Description: Dinitz's algorithm to find max-flow.
- * Usage: Call myflow.resize(num_vertices, source, sink) to initalize the network.
+ * Usage: Call myflow.resize(n) to initalize the network.
  * Time: O(V^2 \cdot E) in worst cases
  * Status: Well-tested
  */
 
-struct MaxFlow {
-    struct FlowEdge {
+struct Dinic {
+    struct Edge {
         int u, v;
         ll capacity, flow = 0;
      
-        FlowEdge(int _u = 0, int _v = 0, ll _capacity = 0) {
+        Edge(int _u = 0, int _v = 0, ll _capacity = 0) {
             u = _u, v = _v, capacity = _capacity, flow = 0;
         }
     };
 
     const ll FLOW_INF = (ll)2e18;
-    vector<FlowEdge> edges;
+    vector<Edge> edges;
     vector<vector<int>> adj;
     vector<int> level, ptr;
     int n, m;
-    int source, sink;
- 
-    MaxFlow(int _n = 0, int _s = 0, int _t = 0) {
-        resize(_n, _s, _t);
-    }
- 
-    void resize(int _n, int _s, int _t) {
-        n = _n, m = 0, source = _s, sink = _t;
-        adj.assign(n + 1, vector<int>()), level.assign(n + 1, -1);
-        ptr.assign(n + 1, 0); edges.clear();
-    }
 
-    void reset_flow() {
-        for (auto &edge : edges) edge.flow = 0;
+    Dinic(int n = 0) { resize(n); }
+ 
+    void resize(int _n) {
+        n = _n, m = 0;
+        adj.assign(n + 1, vector<int>()), edges.clear();
     }
  
-    void add(int u, int v, ll capacity) {
+    int add(int u, int v, ll capacity) {
         edges.emplace_back(u, v, capacity);
         edges.emplace_back(v, u, 0);
         adj[u].emplace_back(m++), adj[v].emplace_back(m++);
+        return m - 2;
     }
  
-    bool bfs() {
-        fill(level.begin(), level.end(), -1); level[source] = 0;
-        queue<int> q; q.emplace(source);
-        while (!q.empty()) {
-            int u = q.front(); q.pop();
-            for (auto id : adj[u]) {
-                if (edges[id].capacity - edges[id].flow <= 0) continue;
-                if (level[edges[id].v] != -1) continue;
-                level[edges[id].v] = level[u] + 1;
-                q.emplace(edges[id].v);
+    ll dfs(int u, int sink, ll pushed) {
+        if (u == sink || pushed == 0) return pushed;
+        for (int &i = ptr[u]; i < (int)adj[u].size(); ++i) {
+            int id = adj[u][i]; Edge e = edges[id];
+            if (level[u] + 1 != level[e.v] || e.capacity - e.flow <= 0) continue;
+            if (ll p = dfs(e.v, sink, min(pushed, e.capacity - e.flow))) {
+                edges[id].flow += p, edges[id ^ 1].flow -= p;
+                return p;
             }
-        }
-        return level[sink] != -1;
-    }
- 
-    ll dfs(int u, ll pushed) {
-        if (pushed == 0) return 0;
-        if (u == sink) return pushed;
-        for (int &cid = ptr[u]; cid < (int)adj[u].size(); ++cid) {
-            int id = adj[u][cid], v = edges[id].v;
-            if (level[u] + 1 != level[v] || edges[id].capacity - edges[id].flow <= 0) continue;
-            ll amount = dfs(v, min(pushed, edges[id].capacity - edges[id].flow));
-            if (amount == 0) continue;
-            edges[id].flow += amount, edges[id ^ 1].flow -= amount;
-            return amount;
         }
         return 0;
     }
  
-    ll maxFlow() {
+    ll maxFlow(int source, int sink) {
         ll flow = 0;
-        while (bfs()) {
-            fill(ptr.begin(), ptr.end(), 0);
-            while (ll pushed = dfs(source, FLOW_INF)) flow += pushed;
-        }
+        do {
+            level = ptr = vector<int>(n + 1, 0);
+            queue<int> q; q.emplace(source); level[source] = 1;
+            while (!q.empty()) {
+                int u = q.front(); q.pop();
+                for (auto id : adj[u]) {
+                    if (level[edges[id].v] || edges[id].capacity - edges[id].flow <= 0) continue;
+                    level[edges[id].v] = level[u] + 1;
+                    q.emplace(edges[id].v);
+                }
+            }
+            while (ll pushed = dfs(source, sink, FLOW_INF)) flow += pushed;
+        } while (level[sink] != 0);
         return flow;
     }
  
-    vii minCut() {
-        queue<int> q; q.emplace(source);
-        fill(ptr.begin(), ptr.end(), 0); vector<bool> vis(n + 1, false);
-        while (!q.empty()) {
-            int u = q.front(); q.pop();
-            if (vis[u]) continue;
-            vis[u] = true;
-            for (int &cid = ptr[u]; cid < (int)(adj[u].size()); ++cid) {
-                int id = adj[u][cid], v = edges[id].v;
-                if (level[u] + 1 != level[v] || edges[id].capacity - edges[id].flow <= 0) continue;
-                q.emplace(v);
-            }
-        }
+    vii minCut() { // remember to call maxFlow(source, sink) and be careful of duplicates
         vii cut;
-        for (auto it : edges) {
-            if (vis[it.u] && !vis[it.v]) cut.emplace_back(it.u, it.v);
-        }
+        for (auto it : edges)
+            if (level[it.u] && !level[it.v]) cut.emplace_back(it.u, it.v);
         return cut;
     }
 } myflow;

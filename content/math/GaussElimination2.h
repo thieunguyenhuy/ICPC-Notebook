@@ -8,7 +8,7 @@
 
 namespace Gauss {
     // n: num equations, m: num variables
-    // left hand side: 0 -> m-1, right hand side: column m
+    // left hand side: [0, m-1], right hand side: column m
     const int M = 4096 + 5;
     using T = bitset<M>;
 

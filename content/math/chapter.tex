@@ -1,7 +1,7 @@
 \chapter{Mathematics}
 
 \section{Math notes}
-		\subsection{Derangements}
+        \subsection{Derangements}
         Count the number of permutations of length $n$ with $0$ fixed points (i.e $p(i) \neq i$ for all $i \leq n$)
         \[
         f(n) = 
@@ -66,11 +66,104 @@
         \includegraphics[width=1.0\linewidth]{c.png}
     \end{center}
     \begin{center}
-        \includegraphics[width=0.6\linewidth]{d.png}
+        \includegraphics[width=0.6\linewidth]{d_1.png}
     \end{center}
     \subsection{Combinatorics}
     \[
     \sum_{k=0}^{x} \frac{\binom{x}{k}}{\binom{n}{k}} = \frac{n + 1}{n - x + 1}.
+    \]
+
+    \subsection{Useful Geometry Formulas}
+
+    \subsubsection{Triangle Geometry}
+    
+    \paragraph{Heron's Formula.}
+    For a triangle with side lengths $a, b, c$ and semiperimeter
+    \[
+    s = \frac{a+b+c}{2},
+    \]
+    the area is
+    \[
+    A = \sqrt{s(s-a)(s-b)(s-c)}.
+    \]
+    
+    \paragraph{Area Formulas.}
+    For a triangle with side lengths $a,b,c$, height $h_a$, circumradius $R$, and inradius $r$:
+    \[
+    A = \frac{1}{2} a h_a,
+    \qquad
+    A = rs,
+    \qquad
+    A = \frac{abc}{4R},
+    \qquad
+    A = \frac{1}{2} ab \sin \alpha.
+    \]
+    
+    \textit{From these, the circumradius and inradius are:}
+    \[
+    R = \frac{abc}{4A},
+    \qquad
+    r = \frac{A}{s}.
+    \]
+    
+    \paragraph{Law of Sines.}
+    \[
+    \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R.
+    \]
+    
+    \paragraph{Law of Cosines.}
+    \[
+    a^2 = b^2 + c^2 - 2bc \cos A,
+    \quad
+    b^2 = c^2 + a^2 - 2ca \cos B,
+    \quad
+    c^2 = a^2 + b^2 - 2ab \cos C.
+    \]
+    
+    \subsubsection{Analytic Geometry}
+    
+    Let $P(x_0, y_0)$ be a point and
+    \[
+    \ell: \quad ax + by + c = 0
+    \]
+    a line.
+    
+    \paragraph{Perpendicular Foot from a Point to a Line.}
+    \[
+    H\left(
+    x_0 - \frac{a(ax_0 + by_0 + c)}{a^2 + b^2},
+    \quad
+    y_0 - \frac{b(ax_0 + by_0 + c)}{a^2 + b^2}
+    \right).
+    \]
+    
+    \paragraph{Signed Distance from a Point to a Line.}
+    \[
+    d = \frac{ax_0 + by_0 + c}{\sqrt{a^2 + b^2}}.
+    \]
+    
+    \paragraph{Reflection of a Point Across a Line.}
+    \[
+    P' \left(
+    x_0 - \frac{2a(ax_0 + by_0 + c)}{a^2 + b^2},
+    \quad
+    y_0 - \frac{2b(ax_0 + by_0 + c)}{a^2 + b^2}
+    \right).
+    \]
+    
+    \paragraph{Signed Angle Between Two Vectors.}
+    For vectors $\vec{u} = (u_x, u_y)$ and $\vec{v} = (v_x, v_y)$, the signed angle $\theta$ from $\vec{u}$ to $\vec{v}$ is
+    \[
+    \theta = \operatorname{atan2}\!\left(
+    u_x v_y - u_y v_x,\;
+    u_x v_x + u_y v_y
+    \right).
+    \]
+    Equivalently,
+    \[
+    \tan \theta
+    = \frac{\vec{u} \times \vec{v}}{\vec{u} \cdot \vec{v}}
+    = \frac{u_x v_y - u_y v_x}{u_x v_x + u_y v_y}.
     \]
 
 \section{Algorithms}

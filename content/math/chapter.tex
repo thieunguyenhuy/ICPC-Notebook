@@ -1,16 +1,22 @@
 \chapter{Mathematics}
 
 \section{Math notes}
-        \subsection{Derangements}
-        Count the number of permutations of length $n$ with $0$ fixed points (i.e $p(i) \neq i$ for all $i \leq n$)
-        \[
-        f(n) = 
-        \begin{cases}
-        1, & n = 0,\\[6pt]
-        0, & n = 1,\\[6pt]
-        (n - 1)\bigl(f(n - 1) + f(n - 2)\bigr), & n \ge 2.
-        \end{cases}
-        \]
+    \subsection{Derangements}
+    Count the number of permutations of length $n$ with $0$ fixed points (i.e.\ $p(i) \neq i$ for all $i \leq n$)
+    \[
+    f(n) = 
+    \begin{cases}
+    1, & n = 0,\\[6pt]
+    0, & n = 1,\\[6pt]
+    (n - 1)\bigl(f(n - 1) + f(n - 2)\bigr), & n \ge 2.
+    \end{cases}
+    \]
+    
+    An equivalent identity is
+    \[
+    f(n) = n\,f(n-1) + (-1)^n.
+    \]
+
     \subsection{Catalan Numbers}
         \begin{itemize}
         \item Correctly matched parentheses expressions of length $2n$,
@@ -122,11 +128,10 @@
     
     \subsubsection{Analytic Geometry}
     
-    Let $P(x_0, y_0)$ be a point and
+    Let $P(x_0, y_0)$ be a point and a line:
     \[
     \ell: \quad ax + by + c = 0
     \]
-    a line.
     
     \paragraph{Perpendicular Foot from a Point to a Line.}
     \[
